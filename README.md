@@ -1,1 +1,1 @@
-# goit-js-hw-07
+https://rafal-chojnacki.github.io/goit-js-hw-07/
