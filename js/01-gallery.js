@@ -3,16 +3,16 @@ import { galleryItems } from './gallery-items.js';
 
 const gallery = document.querySelector('.gallery')
 const items = []
-for (let i = 0; i < galleryItems.length; i++) {
+for (const image of galleryItems) {
   const item = document.createElement('li')
   item.insertAdjacentHTML("beforeend", `
   <div class="gallery__item">
-  <a class="gallery__link" href="${galleryItems[i].original}">
+  <a class="gallery__link" href="${image.original}">
     <img
       class="gallery__image"
-      src="${galleryItems[i].preview}"
-      data-source="${galleryItems[i].original}"
-      alt="${galleryItems[i].description}"
+      src="${image.preview}"
+      data-source="${image.original}"
+      alt="${image.description}"
     />
   </a>
 </div>` );
