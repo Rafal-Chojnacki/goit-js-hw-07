@@ -5,17 +5,29 @@ const gallery = document.querySelector('.gallery')
 const items = []
 for (let i = 0; i < galleryItems.length; i++) {
   const item = document.createElement('li')
-  item.classList.add('gallery__item')
-  item.insertAdjacentHTML("beforeend", `<img data-id="${i}" class = "gallery__image" src="${galleryItems[i].preview}" alt="${galleryItems[i].description}" data-src="${galleryItems[i].original}" width = 372px height = 240px >` );
+  item.insertAdjacentHTML("beforeend", `
+  <div class="gallery__item">
+  <a class="gallery__link" href="${galleryItems[i].original}">
+    <img
+      class="gallery__image"
+      src="${galleryItems[i].preview}"
+      data-source="${galleryItems[i].original}"
+      alt="${galleryItems[i].description}"
+    />
+  </a>
+</div>` );
   items.push(item)
 };
 gallery.append(...items)
+gallery.addEventListener ('click', galleryLinkClick)
+function galleryLinkClick(event) {
+  event.preventDefault();
+}
 
 gallery.addEventListener('click', function(e) {
   
   if (e.target.tagName === 'IMG') {
-    const imgUrl = e.target.getAttribute('data-src');
-    console.log(imgUrl)
+    const imgUrl = e.target.getAttribute('data-source');
     const instance = basicLightbox.create(`<img src="${imgUrl}" width="100%">`,
     {
       onShow: (instance) => {
