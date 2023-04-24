@@ -11,4 +11,4 @@ for (let i = 0; i < galleryItems.length; i++) {
   items.push(item)
 };
 gallery.append(...items)
-let lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+let lightbox = new SimpleLightbox('.gallery a');
