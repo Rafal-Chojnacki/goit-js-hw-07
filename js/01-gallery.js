@@ -19,12 +19,10 @@ for (const image of galleryItems) {
   items.push(item)
 };
 gallery.append(...items)
-gallery.addEventListener ('click', galleryLinkClick)
-function galleryLinkClick(event) {
-  event.preventDefault();
-}
+
 
 gallery.addEventListener('click', function(e) {
+  e.preventDefault();
   
   if (e.target.tagName === 'IMG') {
     const imgUrl = e.target.getAttribute('data-source');
